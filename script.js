@@ -1,13 +1,11 @@
-// Set current year
-document.getElementById('year').textContent = new Date().getFullYear();
+// Responsive mobile menu
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.querySelector('nav ul');
 
-// Simple scroll animation (fade-in on scroll)
-const elements = document.querySelectorAll('.portfolio-item, .testimonial, .about p');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
+menuToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+  menuToggle.classList.toggle('open');
 });
-elements.forEach(el => observer.observe(el));
+
+// Year auto update
+document.getElementById('year').textContent = new Date().getFullYear();
